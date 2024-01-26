@@ -2,8 +2,8 @@ interface IPokemonState {
   data: Pokemon[];
   prev: string | null;
   next: string | null;
-  selectedPokemon: Pokemon | null
-  loading: boolean
+  selectedPokemon: Pokemon | null;
+  loading: boolean;
 }
 
 interface PokemonResponse {
@@ -28,10 +28,13 @@ interface SimplePokemon {
 //! Actions:
 
 interface PokemonAction {
-    type: string;
-    payload: PokemonCompleteResponse | Pokemon;
-  }
-  
+  type: string;
+  payload: PokemonCompleteResponse | Pokemon;
+}
+
+interface MovesByLevel {
+  [key: string]: Move[];
+}
 
 // !Pokemon
 
@@ -207,4 +210,3 @@ interface Type {
   slot: number;
   type: Species;
 }
-
