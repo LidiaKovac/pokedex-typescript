@@ -5,8 +5,8 @@ import { fetchPokemon, fetchPokemonByName } from "../api/pokemon";
 export const SET_POKEMON = "SET_POKEMON";
 export const SELECT_POKEMON = "SELECT_POKEMON";
 
-export const SET_LOADING_TRUE = "SET_LOADING_TRUE"
-export const SET_LOADING_FALSE = "SET_LOADING_FALSE"
+export const SET_LOADING_TRUE = "SET_LOADING_TRUE";
+export const SET_LOADING_FALSE = "SET_LOADING_FALSE";
 
 // Async Actions
 export const setPokemonAction = (): ThunkAction<
@@ -18,8 +18,8 @@ export const setPokemonAction = (): ThunkAction<
   return async (dispatch, getState) => {
     // getState().pokemon.selected
     dispatch({
-        type: SET_LOADING_TRUE
-    })
+      type: SET_LOADING_TRUE,
+    });
     const pokemon = await fetchPokemon();
     dispatch({
       type: SET_POKEMON,
@@ -33,8 +33,8 @@ export const selectPokemonAction = (
 ): ThunkAction<Promise<void>, Store, {}, PokemonAction | UnknownAction> => {
   return async (dispatch) => {
     dispatch({
-        type: SET_LOADING_TRUE
-    })
+      type: SET_LOADING_TRUE,
+    });
     const pkmn = await fetchPokemonByName(name);
     dispatch({
       type: SELECT_POKEMON,
